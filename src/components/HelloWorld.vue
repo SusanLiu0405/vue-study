@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <el-button type="primary">主按钮</el-button>
+    <el-radio v-model="radio" label="1">备选项</el-radio>
   </div>
 </template>
 
