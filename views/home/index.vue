@@ -132,6 +132,15 @@ export default {
                 }
             ]
         }
+    },
+    mounted() {
+        this.$http('/user?ID=12345')
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(response);
+        })
     }
 }
 </script>
