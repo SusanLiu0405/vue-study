@@ -1,5 +1,5 @@
 <template>
-    <el-form ref="form" label-width="100px" :mode="form": inline="inline">
+    <el-form ref="form" label-width="100px" :mode="form" :inline="inline">
         <el-form-item v-for="item in formLabel" :key="item.label" :label="item.label">
             <el-input
                 v-if="item.type === 'input'"
@@ -19,11 +19,11 @@
                 placeholder="请选择"
                 v-model="form[item.model]"
             >
-                <el-option>
+                <el-option
                     v-for="item in item.opts"
                     :key="item.label"
                     :label="item.label"
-                    :value="item.value"
+                    :value="item.value">
                 </el-option>
             </el-select>
         </el-form-item>
@@ -38,7 +38,7 @@ export default {
         form: Object,
         inline: Boolean
     },
-    data: () {
+    data () {
 
     }    
 }
