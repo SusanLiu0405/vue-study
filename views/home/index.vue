@@ -44,12 +44,13 @@
     </el-row>
 </template>
 <script>
-import { getMenu} from '../../api/data.js'
+import { getData } from '../../api/data.js'
 export default {
     name: 'home',
     data() {
         return {
             userImag: require('../../src/assets/images/user.png'),
+            tableData: [],
             tableData: [
             {
                 name: 'oppo',
@@ -135,7 +136,11 @@ export default {
         }
     },
     mounted() {
-        getMenu().then(res => {
+        getData().then(res => {
+            const { code, data } = res.data
+            if (code === 20000) {
+                this.tableData = data.tableData
+            }
             console.log(res)
         })
     }
