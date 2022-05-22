@@ -12,7 +12,7 @@
                     <span style="margin-left: 10px">{{ scope.row[item.prop] }}</span>
                 </template>
             </el-table-column>
-            <el-table-column>
+            <el-table-column label="操作" min-width="180">
                 <el-button size="mini" @click="handleEdit">编辑</el-button>
                 <el-button size="mini" type="danger" @click="handleDelete">删除</el-button>
             </el-table-column>
@@ -40,25 +40,25 @@ export default {
         
     },
     methods: {
-        handleEdit() {
-
+        handleEdit(row) {
+            this.$emit('edit', row)
         },
-        handleDelete() {
-
+        handleDelete(row) {
+            this.$emit('del', row)
         },
-        changePage() {
-
+        changePage(page) {
+            this.$emit('changePage', page)
         }
     }
 }
 </script>
 <style lang="less" scoped>
 .common-table {
-    height: calc(100%-62px);
+    height: calc(100% - 62px);
     background-color: #fff;
-    position: 
+    position: relative;
     .pager {
-        position :absolute;
+        position: absolute;
         bottom: 0;
         right: 20px
     };
