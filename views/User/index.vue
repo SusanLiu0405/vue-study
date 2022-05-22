@@ -163,7 +163,7 @@ export default {
             }
         },
         editUser() {
-            operateType = 'add'
+            operateType = 'edit'
             this.isShow = true
             this.operateForm = row
         },
