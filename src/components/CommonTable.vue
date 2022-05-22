@@ -6,7 +6,7 @@
                 v-for="item in tableLabel"
                 :key="item.prop"
                 :label="item.label"
-                :width="item.width ? item.width :125"
+                :width="item.width ? item.width : 125"
             >
                 <template slot-scope="scope">
                     <span style="margin-left: 10px">{{ scope.row[item.prop] }}</span>

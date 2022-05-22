@@ -17,6 +17,6 @@ html, body {
   padding: 0;
 }
 #app {
-  height: 100wh;
+  height: 100%;
 }
 </style>
