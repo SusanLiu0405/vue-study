@@ -97,7 +97,17 @@ export default {
     },
     methods: {
         confirm() {
-
+            if (this.operateType === 'edit') {
+                this.$http.post('/user/edit', this.operateForm).then(res => {
+                    console.log(res)
+                    this.isShow = false;
+                })
+            } else {
+                this.$http.post('/user/add', this.operateForm).then(res => {
+                    console.log(res)
+                    this.isShow = false;
+                })
+            }
         },
         addUser() {
             this.isShow = true
@@ -116,3 +126,10 @@ export default {
     }
 }
 </script>
+<style lang="less" scoped>
+.manage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+</style>
