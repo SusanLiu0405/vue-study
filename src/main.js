@@ -2,7 +2,7 @@ import Vue from 'vue'
 import { Button, Radio, Container, Main, Header, Aside, Menu, Submenu,
         MenuItem, MenuItemGroup, Dropdown, DropdownMenu, DropdownItem, Row,
         Col, Card, Table, TableColumn, Form, FormItem, Input, Select,
-        Option, Switch, DatePicker, Dialog, Pagination,
+        Option, Switch, DatePicker, Dialog, Pagination, MessageBox, Message
        } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './assets/less/index.less'
@@ -41,8 +41,12 @@ Vue.use(Switch);
 Vue.use(DatePicker);
 Vue.use(Dialog);
 Vue.use(Pagination);
+Vue.use(MessageBox);
+Vue.use(Message);
 
-Vue.prototype.$http = http
+Vue.prototype.$http = http;
+Vue.prototype.$message = Message
+Vue.prototype.$confirm = MessageBox.confirm;
 new Vue({
   router,
   render: h => h(App),

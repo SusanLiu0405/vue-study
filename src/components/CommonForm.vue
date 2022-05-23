@@ -1,5 +1,5 @@
 <template>
-    <el-form ref="form" label-width="100px" :mode="form" :inline="inline">
+    <el-form ref="form" label-width="100px" :model="form" :inline="inline">
         <el-form-item v-for="item in formLabel" :key="item.label" :label="item.label">
             <el-input
                 v-if="item.type === 'input'"

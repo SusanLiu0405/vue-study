@@ -5,7 +5,7 @@
             :visible.sync="isShow"
         >
             <common-form
-                :formLabel="operatateFormLabel"
+                :formLabel="operateFormLabel"
                 :form="operateForm"
                 :inline="true"
                 ref="form"
@@ -23,7 +23,7 @@
                 :inline="true"
                 ref="form"
             >
-                <el-button type="primary" @click="getList">搜索</el-button>
+                <el-button type="primary" @click="getList(searchForm.keyword)">搜索</el-button>
             </common-form>
         </div>
         <common-table
@@ -50,7 +50,7 @@ export default {
         return {
             operateType: 'add',
             isShow: false,
-            operatateFormLabel: [
+            operateFormLabel: [
                 {
                     model: 'name',
                     label: '姓名',
@@ -153,7 +153,7 @@ export default {
         },
         addUser() {
             this.isShow = true
-            operateType = 'add'
+            this.operateType = 'add'
             this.operateForm = {
                 name: '',
                 addr: '',
@@ -162,19 +162,20 @@ export default {
                 sex: ''
             }
         },
-        editUser() {
-            operateType = 'edit'
+        editUser(row) {
+            this.operateType = 'edit'
             this.isShow = true
             this.operateForm = row
         },
-        delUser() {
+        delUser(row) {
             this.$confirm("此操作将永久删除该文件, 是否继续?","提示", {
                 confirmButtonText: "确认",
                 cancelButtonText: "取消",
                 type: "warning"
             }).then(() => {
+                console.log(row, "reach here")
                 const id = row.id
-                $http.get("/user/del", {
+                this.$http.get("/user/del", {
                     params: { id }
                 }).then(() => {
                     this.$message({
